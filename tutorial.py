@@ -9,11 +9,23 @@ import numpy as np
 import pandas as pd
 import csv
 
+# *********************************************************************
+# Slide # 8
+# *********************************************************************
+
 #print('Hello python!')
+
+# *********************************************************************
+# Slide # 9
+# *********************************************************************
 
 # this is the first comment 
 #spam = 1 # and this is the second comment
 #print(spam)
+
+# *********************************************************************
+# Slide # 10
+# *********************************************************************
 
 ## Using python as a calculator
 #print(2 + 2)
@@ -32,6 +44,10 @@ import csv
 #width = 20
 #height = 5 * 9
 #print(width * height)
+
+# *********************************************************************
+# Slide # 11
+# *********************************************************************
 
 ## Strings
 #a = 'orange'
@@ -53,6 +69,10 @@ import csv
 #
 #print(word[:2])   # character from the beginning to position 2 (excluded)
 #print(word[:2] + word[2:])
+
+# *********************************************************************
+# Slide # 13
+# *********************************************************************
 
 ## Lists
 #squares = [1, 4, 9, 16, 25]
@@ -83,6 +103,10 @@ import csv
 #print(x[0])
 #print(x[0][1])
 
+# *********************************************************************
+# Slide # 14
+# *********************************************************************
+
 ## Sets
 #basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 #print(basket) # show that duplicates have been removed
@@ -97,6 +121,10 @@ import csv
 #print(a | b) # letters in a or b or both
 #print(a & b) # letters in both a and b
 #print(a ^ b) # letters in a or b but not both
+
+# *********************************************************************
+# Slide # 15
+# *********************************************************************
 
 ## Dictionaries
 #tel = {'jack': 4098, 'sape': 4139}
@@ -116,6 +144,10 @@ import csv
 ## building a dictionary from pairs using keyword arguments
 #d2 = dict(sape=4139, guido=4127, jack=4098)
 #print(d2)
+
+# *********************************************************************
+# Slide # 16
+# *********************************************************************
 
 ## Numpy arrays
 #a = np.arange(15).reshape(3, 5) # create a 3x5 array with elements from 0-14
@@ -146,6 +178,10 @@ import csv
 #z = np.empty((2,3)) # empy array , output may vary
 #print(z)
 
+# *********************************************************************
+# Slide # 17
+# *********************************************************************
+
 ## Basic operations with Numpy arrays
 #A = np.array( [[1,1],[0,1]] )
 #print(A)
@@ -170,6 +206,10 @@ import csv
 #print(np.exp(b)) # exponential of an array
 #print(np.sqrt(b)) # square root of an array
 
+# *********************************************************************
+# Slide # 18
+# *********************************************************************
+
 # Pandas data frames
 #df1 = pd.DataFrame({ 'A' : 1.,
 #                     'B' : pd.Timestamp('20130102'),
@@ -191,6 +231,10 @@ import csv
 #print(df.loc['20130102':'20130104',['A','B']]) # display defined rows and columns
 #print(df.iloc[2]) # display 3rd row
 
+# *********************************************************************
+# Slide # 19
+# *********************************************************************
+
 ## some basic operations with pandas data frames
 #print(df.head(3)) # first 3 rows
 #print(df.tail(2)) # last 2 rows
@@ -199,6 +243,10 @@ import csv
 #print(df.sort_values(by='B', ascending=True))
 #print(df.mean()) # mean of each column (mean of each row df.mean(1))
 #print(df['A'].sum()) # sum of column A
+
+# *********************************************************************
+# Slide # 20
+# *********************************************************************
 
 ## If statements
 #x = 1
@@ -215,6 +263,10 @@ import csv
 #if x != 5: # if x is not equal to 5
 #    x += 5 # then set x = x + 5
 #    print(x)
+
+# *********************************************************************
+# Slide # 21
+# *********************************************************************
 
 ## Loops: for statements
 #words = ['cat', 'window', 'demonstrate']
@@ -250,46 +302,50 @@ import csv
 #    return result
 #print(fib(100))
 
-# Load save data using numpy
-x = np.loadtxt('input/text_x.txt', skiprows=1)
-print(x)
-sqr_x = x**2
-print(sqr_x)
-np.savetxt('output/sqr_x.txt',sqr_x,fmt='%.3f',header='x1_sqr x2_sqr')
+# *********************************************************************
+# Slide # 22
+# *********************************************************************
 
-# Load save data as it is
-with open('input/text_x.txt') as f:
-    w = f.read()
-    print(w)
-#
-f = open('input/text_x.txt')
-line = f.readlines()  
-print(line)
-#
-with open('input/csv_x.csv') as f:
-    w = f.read()
-    print(w)
+# # Load save data using numpy
+# x = np.loadtxt('input/text_x.txt', skiprows=1)
+# print(x)
+# sqr_x = x**2
+# print(sqr_x)
+# np.savetxt('output/sqr_x.txt',sqr_x,fmt='%.3f',header='x1_sqr x2_sqr')
 
-# use import csv with csv.reader and csv.writer
-with open('input/csv_x.csv') as f:
-    w = csv.reader(f)
-    for row in w:
-        print(row)
-#
-with open('output/cubes_x.csv', 'w') as csvfile:
-    writer = csv.writer(csvfile, delimiter=',')
-    writer.writerow(['x1_cube','x2_cube'])
-    writer.writerows(x**3)
+# # Load save data as it is
+# with open('input/text_x.txt') as f:
+#     w = f.read()
+#     print(w)
+# #
+# f = open('input/text_x.txt')
+# line = f.readlines()  
+# print(line)
+# #
+# with open('input/csv_x.csv') as f:
+#     w = f.read()
+#     print(w)
+
+# # use import csv with csv.reader and csv.writer
+# with open('input/csv_x.csv') as f:
+#     w = csv.reader(f)
+#     for row in w:
+#         print(row)
+# #
+# with open('output/cubes_x.csv', 'w') as csvfile:
+#     writer = csv.writer(csvfile, delimiter=',')
+#     writer.writerow(['x1_cube','x2_cube'])
+#     writer.writerows(x**3)
     
-# Load save data using pandas - RECOMMENDED!!!!
-# text file
-df = pd.read_csv('input/text_x.txt')
-print(df.keys())
-# csv file
-df = pd.read_csv('input/csv_x.csv')
-print(df)
-sqrt_x = df.applymap(np.sqrt)
-sqrt_x.to_csv('output/sqrt_x.csv',index=False, header=['sqrt_x1','sqrt_x2'])
+# # Load save data using pandas - RECOMMENDED!!!!
+# # text file
+# df = pd.read_csv('input/text_x.txt')
+# print(df.keys())
+# # csv file
+# df = pd.read_csv('input/csv_x.csv')
+# print(df)
+# sqrt_x = df.applymap(np.sqrt)
+# sqrt_x.to_csv('output/sqrt_x.csv',index=False, header=['sqrt_x1','sqrt_x2'])
 
 
 
