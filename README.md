@@ -4,10 +4,13 @@ This is brief introduction and hands-on tutorial to Python programming language.
 Some data visualization examples:
 
 # Pie Chart
+
 ![Lunch Habits](output/lunch.png)
 
 # Bar Chart
+
 ![Bar Plot](output/bar.png)
 
 # Histogram
+
 ![Histogram](output/histogram.png)
