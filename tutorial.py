@@ -8,6 +8,7 @@ Created on Tue Jul 25 12:40:38 2017
 import numpy as np
 import pandas as pd
 import csv
+import matplotlib.pyplot as plt
 
 # *********************************************************************
 # Slide # 8
@@ -347,28 +348,53 @@ import csv
 # sqrt_x = df.applymap(np.sqrt)
 # sqrt_x.to_csv('output/sqrt_x.csv',index=False, header=['sqrt_x1','sqrt_x2'])
 
+# *********************************************************************
+# Slide # 23
+# *********************************************************************
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Data visualization
+## line plot
+#plt.plot([1,2,3,4], label='line')
+#plt.ylabel('some numbers')
+#plt.show()
+#
+## scatter plot
+#plt.scatter([1,2,3,4], [1,4,9,16], marker='o', color='red', linestyle='dashed', label='dots')
+#plt.legend()
+#plt.show()
+#
+##  pie chart
+#labels = 'Burrito', 'Taco', 'Tamales', 'California Burrito'
+#sizes = [15, 3, 4.5, 10]
+#explode = (0, 0, 0, 0.2)  # only "explode" the 2nd slice (i.e. 'Hogs')
+#plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',)
+#plt.title('My weekly lunch habits')
+#plt.savefig('output/lunch.pdf')
+#plt.show()
+#
+## bar chart
+#plt.bar([1,2,3,4], [1,4,9,16], color='gray', alpha=0.5)
+#plt.xlabel('values')
+#plt.ylabel('squares')
+#plt.xticks([1,2,3,4])
+#plt.savefig('output/bar.pdf')
+#plt.show()
+#
+## the histogram of the data
+#mu, sigma = 100, 15
+#x = mu + sigma * np.random.randn(10000)
+#plt.hist(x, normed=1, facecolor='g', alpha=0.75)
+#plt.xlabel('Smarts')
+#plt.ylabel('Probability')
+#plt.title('Histogram of IQ')
+#plt.grid(True)
+#plt.savefig('output/histogram.pdf')
+#plt.show()
+#
+## plotting with pandas
+#df = pd.read_csv('input/csv_x.csv')
+#print(df.keys())
+#df['x1'].plot()
+#df['x2'].plot()
+#plt.legend()
+#plt.show()
