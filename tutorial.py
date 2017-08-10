@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import csv
 import matplotlib.pyplot as plt
+from cvxpy import *
 
 # *********************************************************************
 # Slide # 8
@@ -307,78 +308,78 @@ import matplotlib.pyplot as plt
 # Slide # 22
 # *********************************************************************
 
-# # Load save data using numpy
-# x = np.loadtxt('input/text_x.txt', skiprows=1)
-# print(x)
-# sqr_x = x**2
-# print(sqr_x)
-# np.savetxt('output/sqr_x.txt',sqr_x,fmt='%.3f',header='x1_sqr x2_sqr')
+## Load save data using numpy
+#x = np.loadtxt('input/text_x.txt', skiprows=1)
+#print(x)
+#sqr_x = x**2
+#print(sqr_x)
+#np.savetxt('output/sqr_x.txt',sqr_x,fmt='%.3f',header='x1_sqr x2_sqr')
 
-# # Load save data as it is
-# with open('input/text_x.txt') as f:
-#     w = f.read()
-#     print(w)
-# #
-# f = open('input/text_x.txt')
-# line = f.readlines()  
-# print(line)
-# #
-# with open('input/csv_x.csv') as f:
-#     w = f.read()
-#     print(w)
+## Load save data as it is
+#with open('input/text_x.txt') as f:
+#    w = f.read()
+#    print(w)
+##
+#f = open('input/text_x.txt')
+#line = f.readlines()  
+#print(line)
+##
+#with open('input/csv_x.csv') as f:
+#    w = f.read()
+#    print(w)
 
-# # use import csv with csv.reader and csv.writer
-# with open('input/csv_x.csv') as f:
-#     w = csv.reader(f)
-#     for row in w:
-#         print(row)
-# #
-# with open('output/cubes_x.csv', 'w') as csvfile:
-#     writer = csv.writer(csvfile, delimiter=',')
-#     writer.writerow(['x1_cube','x2_cube'])
-#     writer.writerows(x**3)
-    
-# # Load save data using pandas - RECOMMENDED!!!!
-# # text file
-# df = pd.read_csv('input/text_x.txt')
-# print(df.keys())
-# # csv file
-# df = pd.read_csv('input/csv_x.csv')
-# print(df)
-# sqrt_x = df.applymap(np.sqrt)
-# sqrt_x.to_csv('output/sqrt_x.csv',index=False, header=['sqrt_x1','sqrt_x2'])
+## use import csv with csv.reader and csv.writer
+#with open('input/csv_x.csv') as f:
+#    w = csv.reader(f)
+#    for row in w:
+#        print(row)
+##
+#with open('output/cubes_x.csv', 'w') as csvfile:
+#    writer = csv.writer(csvfile, delimiter=',')
+#    writer.writerow(['x1_cube','x2_cube'])
+#    writer.writerows(x**3)
+  
+## Load save data using pandas - RECOMMENDED!!!!
+## text file
+#df = pd.read_csv('input/text_x.txt')
+#print(df.keys())
+## csv file
+#df = pd.read_csv('input/csv_x.csv')
+#print(df)
+#sqrt_x = df.applymap(np.sqrt)
+#sqrt_x.to_csv('output/sqrt_x.csv',index=False, header=['sqrt_x1','sqrt_x2'])
 
 # *********************************************************************
 # Slide # 23
 # *********************************************************************
 
-# Data visualization
-# line plot
-plt.plot([1,2,3,4,5], label='line')
-plt.ylabel('some numbers')
-plt.show()
-#
-# scatter plot
-plt.scatter([1,2,3,4], [1,4,9,16], marker='o', color='red', linestyle='dashed', label='dots')
-plt.legend()
-plt.show()
-#
-##  pie chart
-labels = 'Burrito', 'Taco', 'Tamales', 'California Burrito'
-sizes = [15, 3, 4.5, 10]
-explode = (0, 0, 0.1, 0.2)  # only "explode" the 2nd slice (i.e. 'Hogs')
-plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',)
-plt.title('My weekly lunch habits')
-plt.savefig('output/lunch.pdf')
-plt.show()
-#
-# bar chart
-plt.bar([1,2,3,4], [1,4,9,16], color='gray', alpha=0.5)
-plt.xlabel('values')
-plt.ylabel('squares')
-plt.xticks([1,2,3,4])
-plt.savefig('output/bar.pdf')
-plt.show()
+## Data visualization
+## line plot
+#plt.plot([1,2,3,4,5], label='line')
+#plt.ylabel('some numbers')
+#plt.show()
+##
+## scatter plot
+#plt.scatter([1,2,3,4], [1,4,9,16], marker='o', color='red', linestyle='dashed', label='dots')
+#plt.legend()
+#plt.show()
+##
+###  pie chart
+#labels = 'Burrito', 'Taco', 'Tamales', 'California Burrito'
+#sizes = [15, 3, 4.5, 10]
+#explode = (0, 0, 0.1, 0.2)  # only "explode" the 2nd slice (i.e. 'Hogs')
+#plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',)
+#plt.title('My weekly lunch habits')
+#plt.savefig('output/lunch.pdf')
+#plt.show()
+##
+## bar chart
+#plt.bar([1,2,3,4], [1,4,9,16], color='gray', alpha=0.5)
+#plt.xlabel('values')
+#plt.ylabel('squares')
+#plt.xticks([1,2,3,4])
+#plt.savefig('output/bar.pdf')
+#plt.show()
 #
 ## the histogram of the data
 #mu, sigma = 100, 15
@@ -390,11 +391,138 @@ plt.show()
 #plt.grid(True)
 #plt.savefig('output/histogram.pdf')
 #plt.show()
-#
+
 ## plotting with pandas
 #df = pd.read_csv('input/csv_x.csv')
 #print(df.keys())
 #df['x1'].plot()
 #df['x2'].plot()
 #plt.legend()
+#plt.show()
+
+# *********************************************************************
+# Slide # 26
+# *********************************************************************
+
+## Linear Programming Applications with CVXPY
+#
+## you will need CVXPY package
+#
+##print(installed_solvers())
+#
+## # ********** Example 1 **********
+#
+## Create two scalar optimization variables.
+#x = Variable()
+#y = Variable()
+#
+## Create two constraints.
+#constraints = [ x + y == 1,
+#                x - y >= 1 ]
+#
+## Form objective.
+#obj = Minimize(square(x - y))
+#
+## Form and solve problem.
+#prob = Problem(obj, constraints)
+#prob.solve()
+#
+## job status
+#print(prob.status)
+## The optimal dual variable (Lagrange multiplier) for
+## a constraint is stored in constraint.dual_value.
+#print("optimal (x + y == 1) dual variable", constraints[0].dual_value)
+#print("optimal (x - y >= 1) dual variable", constraints[1].dual_value)
+#print("x - y value:", (x - y).value)
+## objective value
+#print(prob.value)
+## variable optimal value
+#print(x.value)
+
+# *********************************************************************
+# Slide # 27
+# *********************************************************************
+
+# ********** Example 2 **********
+
+## Problem data.
+#m = 3
+#n = 2
+#np.random.seed(1)
+#A = np.random.randn(m, n)
+#b = np.random.randn(m)
+#
+## Construct the problem.
+#x = Variable(n)
+## objective = Minimize(sum_squares(A*x - b))
+#objective = Minimize(sum_entries(A*x - b))
+#constraints = [0 <= x, x <= 1]
+#prob = Problem(objective, constraints)
+#
+## The optimal objective is returned by prob.solve().
+#prob.solve()
+## The optimal value for x is stored in x.value.
+#print('optimal x values:')
+#print(x.value)
+## The optimal Lagrange multiplier for a constraint
+## is stored in constraint.dual_value.
+#print('first constraint dual values:')
+#print(constraints[0].dual_value)
+
+# *********************************************************************
+# Slide # 28
+# *********************************************************************
+
+# # ********** Example 3 **********
+'''
+A company has 3 factories that together produce two products: cars and small trucks.
+Each factory specializes in certain components required for both products.
+Plant 1 makes truck bodies.
+Plant 2 makes car bodies.
+Plant 3 makes shared components and assembles trucks and cars.
+
+Each plant has limited capacity:
+Plant 1: less than 4 car per hour (car <= 4)
+Plant 2: less than 6 trucks per hour (truck <= 6)
+Plant 3: less than 6 cars or 9 trucks per hour (3*car + 2*truck <= 18)
+
+Each product is sold for a fixed price with a fixed profit per unit:
+car: $3, truck: $5
+
+How many cars and truck should be produced to maximize profit per hour?
+'''
+## define variables
+#car = Variable()
+#truck = Variable()
+#
+## create constraints
+#constraints = [ car <= 4, # capacity constraints on production
+#                truck <= 6, # capacity constraints on production
+#                3*car + 2*truck <= 18, # capacity constraints on production
+#                car >= 0, # cannot produce negative products
+#                truck >= 0 ] # cannot produce negative products
+#
+## Form objective.
+#obj = Maximize(3*car + 5*truck)
+#
+## Form and solve problem.
+#prob = Problem(obj, constraints)
+#prob.solve(verbose=True)
+#
+## job status
+#print(prob.status)
+#print('optimal number or cars: ',int(car.value)) # optimal number or cars
+#print('optimal number or trucks: ',int(truck.value)) # optimal number or trucks
+#print('profit ($) per hour: ',round(obj.value,2)) # objective value
+## dual values (Lagrange multipliers)
+#print('first constraint dual value: ',round(constraints[0].dual_value,2)) # first constraint
+#print('second constraint dual value: ',round(constraints[1].dual_value,2)) #  second constraint
+#print('third constraint dual value: ',round(constraints[2].dual_value,2)) # third constraint
+#
+## plot results
+#plt.bar([0],car.value)
+#plt.bar([1],truck.value)
+#plt.xticks([0,1],['car','truck'])
+#plt.ylabel('Production (Unit/hour)')
+#plt.title('Optimal Factory Production')
 #plt.show()
