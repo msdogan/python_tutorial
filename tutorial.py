@@ -352,33 +352,33 @@ import matplotlib.pyplot as plt
 # Slide # 23
 # *********************************************************************
 
-## Data visualization
-## line plot
-#plt.plot([1,2,3,4], label='line')
-#plt.ylabel('some numbers')
-#plt.show()
+# Data visualization
+# line plot
+plt.plot([1,2,3,4,5], label='line')
+plt.ylabel('some numbers')
+plt.show()
 #
-## scatter plot
-#plt.scatter([1,2,3,4], [1,4,9,16], marker='o', color='red', linestyle='dashed', label='dots')
-#plt.legend()
-#plt.show()
+# scatter plot
+plt.scatter([1,2,3,4], [1,4,9,16], marker='o', color='red', linestyle='dashed', label='dots')
+plt.legend()
+plt.show()
 #
 ##  pie chart
-#labels = 'Burrito', 'Taco', 'Tamales', 'California Burrito'
-#sizes = [15, 3, 4.5, 10]
-#explode = (0, 0, 0, 0.2)  # only "explode" the 2nd slice (i.e. 'Hogs')
-#plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',)
-#plt.title('My weekly lunch habits')
-#plt.savefig('output/lunch.pdf')
-#plt.show()
+labels = 'Burrito', 'Taco', 'Tamales', 'California Burrito'
+sizes = [15, 3, 4.5, 10]
+explode = (0, 0, 0.1, 0.2)  # only "explode" the 2nd slice (i.e. 'Hogs')
+plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',)
+plt.title('My weekly lunch habits')
+plt.savefig('output/lunch.pdf')
+plt.show()
 #
-## bar chart
-#plt.bar([1,2,3,4], [1,4,9,16], color='gray', alpha=0.5)
-#plt.xlabel('values')
-#plt.ylabel('squares')
-#plt.xticks([1,2,3,4])
-#plt.savefig('output/bar.pdf')
-#plt.show()
+# bar chart
+plt.bar([1,2,3,4], [1,4,9,16], color='gray', alpha=0.5)
+plt.xlabel('values')
+plt.ylabel('squares')
+plt.xticks([1,2,3,4])
+plt.savefig('output/bar.pdf')
+plt.show()
 #
 ## the histogram of the data
 #mu, sigma = 100, 15
